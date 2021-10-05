@@ -1,0 +1,11 @@
+FROM --platform=linux/arm/v7 python:3-alpine
+COPY qemu-arm-static /usr/bin/
+
+RUN apk add net-tools
+
+ENV XUNLEI_USER ""
+ENV XUNLEI_PASSWD ""
+COPY swjsq.py /
+
+
+ENTRYPOINT ["python", "-u", "/swjsq.py"]
